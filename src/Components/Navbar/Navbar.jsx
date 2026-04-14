@@ -13,9 +13,9 @@ const Navbar = () => {
             <img src={NavLogo} alt="" />
         </div>
         <div className='flex gap-1'>
-            <NavLink className='flex gap-1 items-center px-3 py-4 rounded-lg text-[#64748b]'><FaHome />Home</NavLink>
-            <NavLink className='flex gap-1 items-center px-3 py-4 rounded-lg text-[#64748b]'><FaRegClock />Timeline</NavLink>
-            <NavLink className='flex gap-1 items-center px-3 py-4 rounded-lg text-[#64748b]'><FaChartLine />State</NavLink>
+            <NavLink to="/" className='flex gap-1 items-center px-3 py-4 rounded-lg text-[#64748b]'><FaHome />Home</NavLink>
+            <NavLink to="/timeline" className='flex gap-1 items-center px-3 py-4 rounded-lg text-[#64748b]'><FaRegClock />Timeline</NavLink>
+            <NavLink to="/state" className='flex gap-1 items-center px-3 py-4 rounded-lg text-[#64748b]'><FaChartLine />State</NavLink>
         </div>
       </div>
     </div>
