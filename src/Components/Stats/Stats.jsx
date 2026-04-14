@@ -12,7 +12,7 @@ const Stats = () => {
                 Total Friends
             </p>
         </div>
-        <div className='bg-white shadow-sm p-8 w-65'>
+        <div className='bg-white shadow-sm p-8 w-65 border-2 border-gray-100'>
             <h1 id='Track' className='text-[32px] font-semibold text-[#244D3F]'>
                 0
             </h1>
