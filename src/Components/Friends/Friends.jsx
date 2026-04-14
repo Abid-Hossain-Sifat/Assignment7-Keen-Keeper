@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Loading from '../Loading/Loading';
+import { Link } from 'react-router';
 
 const Friends = () => {
   const [contacts, setContacts] = useState([]);
@@ -50,9 +51,10 @@ const Friends = () => {
         {/* Grid Layout */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {contacts.map((contact) => (
-            <div
+            <Link
               key={contact.id}
-              className="card bg-base-100 shadow-sm border border-gray-100 p-8 flex flex-col items-center transition-all hover:shadow-md"
+              to={`/friend/${contact.id}`}
+              className="card bg-base-100 shadow-sm border border-gray-100 p-8 flex flex-col items-center transition-all hover:shadow-md hover:scale-[1.01] cursor-pointer"
             >
               {/* Profile Image */}
               <div className="avatar mb-6">
@@ -95,7 +97,7 @@ const Friends = () => {
                   {contact.status}
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
