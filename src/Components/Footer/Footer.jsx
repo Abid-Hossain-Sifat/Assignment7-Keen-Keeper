@@ -20,13 +20,13 @@ const Footer = () => {
             </h1>
             <div className='flex gap-3 justify-center mt-4 mb-10'>
                 <div className='p-2.5 w-fit rounded-full bg-white text-[30px]'>
-                    <a href=""><FaFacebook /></a>
+                    <a href="https://www.facebook.com/share/1E5ZMLxiUb/" target='_blank'><FaFacebook /></a>
                 </div>
                 <div className='p-2.5 w-fit rounded-full bg-white text-[30px]'>
-                <a href=""><FaLinkedin /></a>
+                <a href="www.linkedin.com/in/abid-hossain-sifat" target='_blank'><FaLinkedin /></a>
                 </div>
                 <div className='p-2.5 w-fit rounded-full bg-white text-[30px]'>
-                    <a href=""><FaGithub /></a>
+                    <a href="https://github.com/Abid-Hossain-Sifat" target='_blank'><FaGithub /></a>
                 </div>
             </div>
             <div className='h-0.5 bg-[#225946] '></div>
