@@ -23,7 +23,7 @@ const Footer = () => {
                     <a href="https://www.facebook.com/share/1E5ZMLxiUb/" target='_blank'><FaFacebook /></a>
                 </div>
                 <div className='p-2.5 w-fit rounded-full bg-white text-[30px]'>
-                <a href="www.linkedin.com/in/abid-hossain-sifat" target='_blank'><FaLinkedin /></a>
+                <a href="https://www.linkedin.com/in/abid-hossain-sifat" target='_blank'><FaLinkedin /></a>
                 </div>
                 <div className='p-2.5 w-fit rounded-full bg-white text-[30px]'>
                     <a href="https://github.com/Abid-Hossain-Sifat" target='_blank'><FaGithub /></a>
