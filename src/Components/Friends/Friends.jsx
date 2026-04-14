@@ -75,7 +75,7 @@ const Friends = () => {
                 {contact.days_since_contact}d ago
               </p>
 
-              {/* Tags (DaisyUI Badges) */}
+              {/* Tags */}
               <div className="flex flex-wrap justify-center gap-2 mb-8">
                 {contact.tags.map((tag, idx) => (
                   <div
