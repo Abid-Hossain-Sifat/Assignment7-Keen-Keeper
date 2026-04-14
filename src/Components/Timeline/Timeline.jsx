@@ -20,6 +20,7 @@ const filters = ['All', 'Call', 'Text', 'Video'];
 
 const Timeline = () => {
   const [selectedFilter, setSelectedFilter] = useState('All');
+  const [sortOrder, setSortOrder] = useState('newest');
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -59,10 +60,18 @@ const Timeline = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const filteredEvents = useMemo(() => {
-    if (selectedFilter === 'All') return events;
-    return events.filter((event) => event.type === selectedFilter);
-  }, [events, selectedFilter]);
+  const filteredAndSortedEvents = useMemo(() => {
+    const filtered =
+      selectedFilter === 'All'
+        ? events
+        : events.filter((event) => event.type === selectedFilter);
+
+    return [...filtered].sort((a, b) => {
+      const first = new Date(a.createdAt).getTime();
+      const second = new Date(b.createdAt).getTime();
+      return sortOrder === 'newest' ? second - first : first - second;
+    });
+  }, [events, selectedFilter, sortOrder]);
 
   const formatTime = (dateValue) =>
     new Date(dateValue).toLocaleTimeString('en-US', {
@@ -78,20 +87,31 @@ const Timeline = () => {
       <div className="max-w-5xl mx-auto">
         <h1 className="text-5xl font-black text-slate-800 mb-8">Timeline</h1>
 
-        <select
-          value={selectedFilter}
-          onChange={(event) => setSelectedFilter(event.target.value)}
-          className="select select-bordered bg-white border-slate-200 text-slate-500 mb-8 w-full max-w-xs"
-        >
-          {filters.map((filter) => (
-            <option key={filter} value={filter}>
-              {filter === 'All' ? 'Filter timeline' : filter}
-            </option>
-          ))}
-        </select>
+        <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <select
+            value={selectedFilter}
+            onChange={(event) => setSelectedFilter(event.target.value)}
+            className="select select-bordered select-sm bg-white border-slate-200 text-slate-500 text-sm w-full sm:w-52"
+          >
+            {filters.map((filter) => (
+              <option key={filter} value={filter}>
+                {filter === 'All' ? 'Filter timeline' : filter}
+              </option>
+            ))}
+          </select>
+
+          <select
+            value={sortOrder}
+            onChange={(event) => setSortOrder(event.target.value)}
+            className="select select-bordered select-sm bg-white border-slate-200 text-slate-500 text-sm w-full sm:w-44"
+          >
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+          </select>
+        </div>
 
         <div className="space-y-4">
-          {filteredEvents.map((event) => {
+          {filteredAndSortedEvents.map((event) => {
             const typeStyle = eventConfig[event.type] || eventConfig.Text;
             return (
               <div
@@ -119,7 +139,7 @@ const Timeline = () => {
             );
           })}
 
-          {filteredEvents.length === 0 && (
+          {filteredAndSortedEvents.length === 0 && (
             <div className="bg-white border border-dashed border-slate-200 rounded-lg px-5 py-8 text-center text-slate-400">
               No timeline data.
             </div>

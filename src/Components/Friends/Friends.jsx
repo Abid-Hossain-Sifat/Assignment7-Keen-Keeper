@@ -40,7 +40,7 @@ const Friends = () => {
 
   return (
     <div className="my-20 font-sans">
-      <div className="max-w-[85%] mx-auto">
+      <div className="max-w-[80%] mx-auto">
         <div className="mb-10">
           <h4 className="text-[#1F2937] text-3xl font-bold">
             Your Friends
