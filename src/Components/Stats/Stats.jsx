@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
+const TimeLine = 'timelineEvents';
+
 const Stats = () => {
   const [stats, setStats] = useState({
     totalFriends: 0,
@@ -19,9 +21,7 @@ const Stats = () => {
         const attention = data.filter(
           (friend) => friend.status?.toLowerCase() === 'overdue'
         ).length;
-        const timelineEvents = JSON.parse(
-          localStorage.getItem('keen_keeper_timeline_events') || '[]'
-        );
+        const timelineEvents = JSON.parse(localStorage.getItem(TimeLine) || '[]');
         const now = new Date();
         const interactions = Array.isArray(timelineEvents)
           ? timelineEvents.filter((event) => {

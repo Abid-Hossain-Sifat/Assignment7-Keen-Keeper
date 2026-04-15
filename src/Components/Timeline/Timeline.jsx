@@ -7,8 +7,8 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../Loading/Loading';
 
-const TIMELINE_STORAGE_KEY = 'keen_keeper_timeline_events';
-const ALLOWED_TYPES = ['Call', 'Text', 'Video'];
+const TimeLine = 'timelineEvents';
+const allowedType = ['Call', 'Text', 'Video'];
 
 const eventConfig = {
   Text: { icon: <LuMessageCircleMore />, accent: 'text-slate-500' },
@@ -27,7 +27,7 @@ const Timeline = () => {
   const handleDeleteEvent = (eventId) => {
     const updatedEvents = events.filter((event) => event.id !== eventId);
     setEvents(updatedEvents);
-    localStorage.setItem(TIMELINE_STORAGE_KEY, JSON.stringify(updatedEvents));
+    localStorage.setItem(TimeLine, JSON.stringify(updatedEvents));
     toast.error('Item Remove');
   };
 
@@ -35,7 +35,7 @@ const Timeline = () => {
     setLoading(true);
 
     const timer = setTimeout(() => {
-      const rawEvents = localStorage.getItem(TIMELINE_STORAGE_KEY);
+      const rawEvents = localStorage.getItem(TimeLine);
 
       if (!rawEvents) {
         setEvents([]);
@@ -46,9 +46,9 @@ const Timeline = () => {
       try {
         const parsed = JSON.parse(rawEvents);
         const validEvents = Array.isArray(parsed)
-          ? parsed.filter((event) => ALLOWED_TYPES.includes(event.type))
+          ? parsed.filter((event) => allowedType.includes(event.type))
           : [];
-        localStorage.setItem(TIMELINE_STORAGE_KEY, JSON.stringify(validEvents));
+        localStorage.setItem(TimeLine, JSON.stringify(validEvents));
         setEvents(validEvents);
       } catch {
         setEvents([]);

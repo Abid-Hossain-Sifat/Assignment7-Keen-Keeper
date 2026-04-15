@@ -10,7 +10,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../Loading/Loading';
 
-const TIMELINE_STORAGE_KEY = 'keen_keeper_timeline_events';
+const TimeLine = 'timelineEvents';
 
 const Details = () => {
   const { id } = useParams();
@@ -58,8 +58,9 @@ const Details = () => {
     });
   };
 
-  const handleQuickCheckIn = (type) => {
-    const previousEvents = JSON.parse(localStorage.getItem(TIMELINE_STORAGE_KEY) || '[]');
+  const checkIn = (type) => {
+    const prevEvents = JSON.parse(localStorage.getItem(TimeLine) || '[]');
+
     const newEvent = {
       id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
       type,
@@ -68,10 +69,10 @@ const Details = () => {
       createdAt: new Date().toISOString(),
     };
 
-    const updatedEvents = [newEvent, ...previousEvents].sort(
+    const upEvents = [newEvent, ...prevEvents].sort(
       (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
     );
-    localStorage.setItem(TIMELINE_STORAGE_KEY, JSON.stringify(updatedEvents));
+    localStorage.setItem(TimeLine, JSON.stringify(upEvents));
     toast.success(`${type} with ${friend.name}`);
   };
 
@@ -166,21 +167,21 @@ const Details = () => {
             <h4 className="font-bold text-gray-700 text-lg mb-6">Quick Check-In</h4>
             <div className="grid grid-cols-3 gap-6">
               <button
-                onClick={() => handleQuickCheckIn('Call')}
+                onClick={() => checkIn('Call')}
                 className="flex flex-col items-center justify-center py-8 border border-gray-50 rounded-2xl hover:bg-gray-50 transition-all group"
               >
                 <span className="text-3xl mb-3 group-hover:scale-110 transition-transform"><BiPhoneCall /></span>
                 <span className="text-sm font-bold text-gray-600">Call</span>
               </button>
               <button
-                onClick={() => handleQuickCheckIn('Text')}
+                onClick={() => checkIn('Text')}
                 className="flex flex-col items-center justify-center py-8 border border-gray-50 rounded-2xl hover:bg-gray-50 transition-all group"
               >
                 <span className="text-3xl mb-3 group-hover:scale-110 transition-transform"><LuMessageCircleMore /></span>
                 <span className="text-sm font-bold text-gray-600">Text</span>
               </button>
               <button
-                onClick={() => handleQuickCheckIn('Video')}
+                onClick={() => checkIn('Video')}
                 className="flex flex-col items-center justify-center py-8 border border-gray-50 rounded-2xl hover:bg-gray-50 transition-all group"
               >
                 <span className="text-3xl mb-3 group-hover:scale-110 transition-transform"><GoDeviceCameraVideo /></span>
