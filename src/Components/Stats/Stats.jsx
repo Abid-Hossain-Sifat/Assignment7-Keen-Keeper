@@ -48,8 +48,8 @@ const Stats = () => {
 
   return (
     <div className='bg-[#f8fafc] my-10'>
-      <div className='max-w-[80%] mx-auto flex justify-between text-center'>
-        <div className='bg-white shadow-sm p-8 w-65'>
+      <div className='max-w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 text-center'>
+        <div className='bg-white shadow-sm p-8 w-full'>
             <h1 id='totalFreien' className='text-[32px] font-semibold text-[#244D3F]'>
                 {stats.totalFriends}
             </h1>
@@ -57,7 +57,7 @@ const Stats = () => {
                 Total Friends
             </p>
         </div>
-        <div className='bg-white shadow-sm p-8 w-65 border-2 border-gray-100'>
+        <div className='bg-white shadow-sm p-8 w-full border-2 border-gray-100'>
             <h1 id='Track' className='text-[32px] font-semibold text-[#244D3F]'>
                 {stats.onTrack}
             </h1>
@@ -65,7 +65,7 @@ const Stats = () => {
                 On Track
             </p>
         </div>
-        <div className='bg-white shadow-sm p-8 w-65'>
+        <div className='bg-white shadow-sm p-8 w-full'>
             <h1 id='Attention' className='text-[32px] font-semibold text-[#244D3F]'>
                 {stats.attention}
             </h1>
@@ -73,7 +73,7 @@ const Stats = () => {
                 Need Attention
             </p>
         </div>
-        <div className='bg-white shadow-sm p-8 w-65'>
+        <div className='bg-white shadow-sm p-8 w-full'>
             <h1 id='Interactions' className='text-[32px] font-semibold text-[#244D3F]'>
                 {stats.interactions}
             </h1>

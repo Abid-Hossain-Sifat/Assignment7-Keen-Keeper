@@ -40,15 +40,16 @@ const Friends = () => {
 
   return (
     <div className="my-20 font-sans">
-      <div className="max-w-[80%] mx-auto">
+      <div className="max-w-[85%] mx-auto">
         <div className="mb-10">
           <h4 className="text-[#1F2937] text-3xl font-bold">
             Your Friends
           </h4>
+          <p className="text-gray-500">Manage and track your connections</p>
         </div>
 
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {contacts.map((contact) => (
             <Link
               key={contact.id}
@@ -66,7 +67,7 @@ const Friends = () => {
                 </div>
               </div>
 
-              {/* Name & Contact Info */}
+              {/* Name & Info */}
               <h2 className="text-xl font-bold text-gray-800 text-center">
                 {contact.name}
               </h2>
@@ -74,7 +75,7 @@ const Friends = () => {
                 {contact.days_since_contact}d ago
               </p>
 
-              {/* Tags */}
+              {/* Tags  */}
               <div className="flex flex-wrap justify-center gap-2 mb-8">
                 {contact.tags.map((tag, idx) => (
                   <div

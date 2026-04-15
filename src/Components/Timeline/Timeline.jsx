@@ -83,11 +83,11 @@ const Timeline = () => {
   if (loading) return <Loading />;
 
   return (
-    <div className="bg-[#F8FAFC] min-h-screen py-12 px-6 font-sans">
-      <div className="max-w-5xl mx-auto">
-        <h1 className="text-5xl font-black text-slate-800 mb-8">Timeline</h1>
+    <div className="bg-[#F8FAFC] min-h-screen py-10 md:py-12 font-sans">
+      <div className="w-[95%] md:w-[90%] lg:w-[80%] mx-auto">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-800 mb-6 md:mb-8">Timeline</h1>
 
-        <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div className="mb-6 md:mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <select
             value={selectedFilter}
             onChange={(event) => setSelectedFilter(event.target.value)}
@@ -110,16 +110,16 @@ const Timeline = () => {
           </select>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3 md:space-y-4">
           {filteredAndSortedEvents.map((event) => {
             const typeStyle = eventConfig[event.type] || eventConfig.Text;
             return (
               <div
                 key={event.id}
-                className="bg-white border border-slate-100 rounded-lg px-5 py-3 flex items-center justify-between gap-3"
+                className="bg-white border border-slate-100 rounded-lg px-4 md:px-5 py-3 flex items-center justify-between gap-3"
               >
                 <div className="flex items-center gap-3">
-                  <div className={`text-2xl ${typeStyle.accent}`}>{typeStyle.icon}</div>
+                  <div className={`text-xl md:text-2xl ${typeStyle.accent}`}>{typeStyle.icon}</div>
                   <div>
                     <p className="text-slate-700 text-sm">
                       <span className="font-bold">{event.type}</span>

@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { StrictMode, Suspense, useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter } from "react-router";
 import Root from './Components/Root/Root.jsx';
@@ -12,6 +12,7 @@ import Timeline from './Components/Timeline/Timeline.jsx';
 import Graph from './Components/StateGraph/Graph.jsx';
 import Details from './Components/Friends Details/Details.jsx';
 import Error404 from './Components/404 Error/Error.jsx';
+import Loading from './Components/Loading/Loading.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,8 +28,27 @@ const router = createBrowserRouter([
   }
 ]);
 
+const AppEntry = () => {
+  const [isBooting, setIsBooting] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsBooting(false), 800);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isBooting) {
+    return <Loading size="md" fullScreen />;
+  }
+
+  return (
+    <Suspense fallback={<Loading />}>
+      <RouterProvider router={router} fallbackElement={<Loading />}></RouterProvider>
+    </Suspense>
+  );
+};
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <AppEntry />
   </StrictMode>,
 )

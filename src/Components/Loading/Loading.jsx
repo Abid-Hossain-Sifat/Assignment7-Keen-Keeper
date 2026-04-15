@@ -1,7 +1,11 @@
-const Loading = () => {
+const Loading = ({ size = 'xl', fullScreen = true }) => {
+  const containerClass = fullScreen
+    ? 'flex justify-center items-center h-screen'
+    : 'flex justify-center items-center py-8';
+
   return (
-    <div className="flex justify-center items-center h-screen">
-      <span className="loading loading-dots loading-xl text-[##244d3f]" style={{ color: "#244d3f" }}></span>
+    <div className={containerClass}>
+      <span className={`loading loading-dots loading-${size}`} style={{ color: '#244d3f' }}></span>
     </div>
   );
 };
