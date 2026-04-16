@@ -45,7 +45,6 @@ const Friends = () => {
           <h4 className="text-[#1F2937] text-3xl font-bold">
             Your Friends
           </h4>
-          <p className="text-gray-500">Manage and track your connections</p>
         </div>
 
         {/* Grid Layout */}
