@@ -1,7 +1,7 @@
 # 🌐 Live Demo
 ### 🔗 Visit Now:
 
-👉 Loading......
+👉 https://assignment7-keen-keeper.vercel.app
 
 ### Experience the platform in real-time and explore digital tools instantly.
 ----
