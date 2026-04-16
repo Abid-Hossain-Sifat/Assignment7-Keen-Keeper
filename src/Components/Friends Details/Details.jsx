@@ -115,7 +115,7 @@ const Details = () => {
             <p className="text-gray-500 text-sm mt-6 text-center italic leading-relaxed">
               "{friend.bio}" <br />
               <span className="text-xs font-semibold not-italic text-gray-400 mt-2 block">
-                Preferred: email
+                Email: {friend.email}
               </span>
             </p>
           </div>
@@ -168,24 +168,24 @@ const Details = () => {
             <div className="grid grid-cols-3 gap-6">
               <button
                 onClick={() => checkIn('Call')}
-                className="flex flex-col items-center justify-center py-8 border border-gray-50 rounded-2xl hover:bg-gray-50 transition-all group"
+                className="flex flex-col items-center justify-center py-8 border border-gray-50 rounded-2xl hover:bg-gray-50 transition-all group shadow-sm"
               >
                 <span className="text-3xl mb-3 group-hover:scale-110 transition-transform"><BiPhoneCall /></span>
-                <span className="text-sm font-bold text-gray-600">Call</span>
+                <p className="text-sm font-bold text-gray-600">Call</p>
               </button>
               <button
                 onClick={() => checkIn('Text')}
-                className="flex flex-col items-center justify-center py-8 border border-gray-50 rounded-2xl hover:bg-gray-50 transition-all group"
+                className="flex flex-col items-center justify-center py-8 border border-gray-50 rounded-2xl hover:bg-gray-50 transition-all group shadow-sm"
               >
                 <span className="text-3xl mb-3 group-hover:scale-110 transition-transform"><LuMessageCircleMore /></span>
-                <span className="text-sm font-bold text-gray-600">Text</span>
+                <p className="text-sm font-bold text-gray-600">Text</p>
               </button>
               <button
                 onClick={() => checkIn('Video')}
-                className="flex flex-col items-center justify-center py-8 border border-gray-50 rounded-2xl hover:bg-gray-50 transition-all group"
+                className="flex flex-col items-center justify-center py-8 border border-gray-50 rounded-2xl hover:bg-gray-50 transition-all group shadow-sm"
               >
                 <span className="text-3xl mb-3 group-hover:scale-110 transition-transform"><GoDeviceCameraVideo /></span>
-                <span className="text-sm font-bold text-gray-600">Video</span>
+                <p className="text-sm font-bold text-gray-600">Video</p>
               </button>
             </div>
           </div>
