@@ -74,6 +74,8 @@ const Graph = () => {
     }
   }
 
+  const hasGraphData = chartData.some((value) => value > 0)
+
   return (
     <div className='w-full'>
       <div className='max-w-5xl mx-auto px-4 py-8'>
@@ -85,11 +87,19 @@ const Graph = () => {
           By Interaction Type
           </h3>
 
-          <div className='w-full flex justify-center'>
-            <div className='w-[300px] h-[300px]'>
-              <Doughnut data={data} options={options} />
+          {hasGraphData ? (
+            <div className='w-full flex justify-center'>
+              <div className='w-[300px] h-[300px]'>
+                <Doughnut data={data} options={options} />
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className='min-h-[300px] flex items-center justify-center'>
+              <p className='text-slate-500 text-center'>
+                No data Available for show Graph.
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </div>
