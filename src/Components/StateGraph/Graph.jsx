@@ -94,9 +94,9 @@ const Graph = () => {
               </div>
             </div>
           ) : (
-            <div className='min-h-[300px] flex items-center justify-center'>
+            <div className='min-h-75 flex items-center justify-center border-2 border-gray-300 rounded-xl'>
               <p className='text-slate-500 text-center'>
-                No data Available for show Graph.
+                No data available to display
               </p>
             </div>
           )}
