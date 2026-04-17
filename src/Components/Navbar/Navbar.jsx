@@ -7,7 +7,7 @@ import { FaChartLine } from 'react-icons/fa'
 import './Navbar.css'
 const Navbar = () => {
   return (
-    <div className='shadow-sm bg-white'>
+    <div className='sticky top-0 z-50 shadow-sm bg-white'>
       <div className='w-[95%] md:w-[90%] lg:w-[90%] mx-auto py-4 flex flex-col md:flex-row md:justify-between md:items-center gap-4'>
         <div className='flex justify-center md:justify-start'>
             <img src={NavLogo} alt="Keen Keeper logo" className='h-10 w-auto object-contain' />
