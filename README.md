@@ -3,7 +3,7 @@
 
 👉 https://assignment7-keen-keeper.vercel.app
 
-### Experience the platform in real-time and explore digital tools instantly.
+### Experience the platform in real-time and explore Keen Keeper instantly.
 ----
 #  Keen Keeper
 
@@ -13,7 +13,7 @@ A smart way to manage, connect, and track your communication.
 
 ## 🔹 Description
 
-*DigiTools Platform* is a modern, React-powered marketplace designed to simplify the discovery and purchase of professional digital tools. From AI-driven content generation to automated workflows, this platform provides a smooth and unified experience for digital entrepreneurs.
+*Keen Keeper* is a modern communication management web app built with React that allows users to interact with friends seamlessly through call, chat, and video features. It provides a clean UI and powerful tracking system where users can monitor their communication history with filtering and timeline-based sorting. The app ensures smooth navigation, dynamic routing, and a user-friendly experience with real-time feedback and visual data representation.
 
 ---
 
@@ -74,7 +74,7 @@ Filter functionality allows users to view:
 
 ## 🚀 Run Locally
 
-Follow these steps to run the DigiTools Platform on your local machine:
+Follow these steps to run the Keen Keeper on your local machine:
 
 ## 📌 Prerequisites
 
