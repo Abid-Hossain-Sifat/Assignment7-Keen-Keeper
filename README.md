@@ -66,7 +66,7 @@ Filter functionality allows users to view:
 ---
 ## 📸 Preview
 
-<img src="https://i.ibb.co.com/kVNbTN8z/screencapture-localhost-5173-2026-04-15-20-39-46.png">
+<img src="https://i.ibb.co.com/35Y402JX/screencapture-assignment7-keen-keeper-vercel-app-2026-04-17-16-57-53.png">
 <br />
 
 ---
